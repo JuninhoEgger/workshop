@@ -13,6 +13,7 @@ import db.DbException;
 import db.DbIntegrityException;
 import model.dao.DepartmentDao;
 import model.entities.Department;
+import model.services.DepartmentService;
 
 public class DepartmentDaoJDBC implements DepartmentDao {
 
