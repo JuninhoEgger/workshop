@@ -17,6 +17,8 @@ import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
 
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
+
 public class SellerDaoJDBC implements SellerDao {
 
 	private Connection conn;
@@ -34,7 +36,7 @@ public class SellerDaoJDBC implements SellerDao {
 					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
 					+ "VALUES "
 					+ "(?, ?, ?, ?, ?)",
-					Statement.RETURN_GENERATED_KEYS);
+					RETURN_GENERATED_KEYS);
 			
 			st.setString(1, obj.getName());
 			st.setString(2, obj.getEmail());
@@ -123,8 +125,7 @@ public class SellerDaoJDBC implements SellerDao {
 			rs = st.executeQuery();
 			if (rs.next()) {
 				Department dep = instantiateDepartment(rs);
-				Seller obj = instantiateSeller(rs, dep);
-				return obj;
+				return instantiateSeller(rs, dep);
 			}
 			return null;
 		}
