@@ -15,6 +15,7 @@ import java.util.Date;
 
 import static java.lang.String.format;
 import static java.time.LocalDate.parse;
+import static java.time.format.DateTimeFormatter.ofPattern;
 import static java.util.Locale.US;
 import static java.util.Locale.setDefault;
 
@@ -44,7 +45,7 @@ public class Utils {
     }
 
     public static <T> void formatTableColumnDate(TableColumn<T, Date> tableColumn, String format) {
-        tableColumn.setCellFactory(column -> new TableCell<T, Date>() {
+        tableColumn.setCellFactory(column -> new TableCell<>() {
             private SimpleDateFormat sdf = new SimpleDateFormat(format);
 
             @Override
@@ -60,7 +61,7 @@ public class Utils {
     }
 
     public static <T> void formatTableColumnDouble(TableColumn<T, Double> tableColumn, int decimalPlaces) {
-        tableColumn.setCellFactory(column -> new TableCell<T, Double>() {
+        tableColumn.setCellFactory(column -> new TableCell<>() {
             @Override
             protected void updateItem(Double item, boolean empty) {
                 super.updateItem(item, empty);
@@ -75,9 +76,9 @@ public class Utils {
     }
 
     public static void formatDatePicker(DatePicker datePicker, String format) {
-        datePicker.setConverter(new StringConverter<LocalDate>() {
+        datePicker.setConverter(new StringConverter<>() {
 
-            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(format);
+            final DateTimeFormatter dateFormatter = ofPattern(format);
 
             {
                 datePicker.setPromptText(format.toLowerCase());
