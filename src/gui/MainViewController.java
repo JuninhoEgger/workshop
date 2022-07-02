@@ -51,7 +51,7 @@ public class MainViewController implements Initializable {
 	
 	@Override
 	public void initialize(URL uri, ResourceBundle rb) {
-		// TODO Auto-generated method stub
+		// Esse método apenas inicializa a view e não pode ser removido
 	}
 	
 	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {

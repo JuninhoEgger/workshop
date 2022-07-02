@@ -3,6 +3,10 @@ package gui.util;
 import javafx.scene.control.TextField;
 
 public class Constraints {
+
+	private Constraints() {
+
+	}
 	
 	public static void setTextFieldInteger(TextField txt) {
 		txt.textProperty().addListener((obs, oldValue, newValue) -> {
