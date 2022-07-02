@@ -1,5 +1,11 @@
 package model.dao.impl;
 
+import db.DB;
+import db.DbException;
+import model.dao.SellerDao;
+import model.entities.Department;
+import model.entities.Seller;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,14 +14,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.mysql.jdbc.Statement;
-
-import db.DB;
-import db.DbException;
-import model.dao.SellerDao;
-import model.entities.Department;
-import model.entities.Seller;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
